@@ -1,0 +1,29 @@
+<h1>{{ village.name }}</h1>
+<p>Address: {{ village.formatted_address }}</p>
+<p>Opening Hours: {{ village.opening_hours.weekday_text }}</p>
+<p>Rating: {{ village.rating }}</p>
+
+<h2>Weather</h2>
+<p>Temperature: {{ weather.temp }} °F</p>
+<p>Condition: {{ weather.condition }}</p>
+
+<h2>Busy Times</h2>
+<p>Current Popularity: {{ busy_times }}</p>
+
+<h2>Menu and Predicted Prices</h2>
+<ul>
+  {% for item, price in predicted_prices.items %}
+  <li>{{ item }}: ${{ price }}</li>
+  {% endfor %}
+</ul>
+
+<h2>Top Restaurants Nearby</h2>
+<ul>
+  {% for restaurant in similar_restaurants %}
+  <li>
+    <p>Name: {{ restaurant.name }}</p>
+    <p>Address: {{ restaurant.vicinity }}</p>
+    <p>Rating: {{ restaurant.rating }}</p>
+  </li>
+  {% endfor %}
+</ul>
